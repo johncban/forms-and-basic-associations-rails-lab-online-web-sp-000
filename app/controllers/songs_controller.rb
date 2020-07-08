@@ -13,6 +13,7 @@ class SongsController < ApplicationController
   end
 
   def create
+    artist = Artist.find_or_create_by(name: song_params[:artist_name])
     @song = Song.new(song_params)
 
     if @song.save
